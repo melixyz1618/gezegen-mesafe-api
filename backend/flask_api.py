@@ -37,7 +37,11 @@ def get_distances():
             'mesafe_km': round(distance_km)
         })
 
-    return jsonify(data)
+    return jsonify({
+        "zaman_utc": now.isoformat(),
+        "veriler": data
+    })
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
