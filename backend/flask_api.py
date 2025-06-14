@@ -4,10 +4,12 @@ from skyfield.api import load_file, load
 
 app = Flask(__name__)
 
+# Efemeris verilerini yükle
 planets = load_file('de421.bsp')
 ts = load.timescale()
 earth = planets['earth']
 
+# Güneş ve Ay dahil tüm gök cisimleri
 planet_names = [
     ('Mercury', 'Merkür'),
     ('Venus', 'Venüs'),
@@ -15,7 +17,9 @@ planet_names = [
     ('Jupiter Barycenter', 'Jüpiter'),
     ('Saturn Barycenter', 'Satürn'),
     ('Uranus Barycenter', 'Uranüs'),
-    ('Neptune Barycenter', 'Neptün')
+    ('Neptune Barycenter', 'Neptün'),
+    ('Sun', 'Güneş'),
+    ('Moon', 'Ay')
 ]
 
 @app.route('/mesafeler')
